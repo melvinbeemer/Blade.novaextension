@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax name="blade">
+    <meta>
+        <name>Blade</name>
+        <type>structured</type>
+        <preferred-file-extension>blade.php</preferred-file-extension>
+        <parent>html</parent>
+    </meta>
+    
+    <detectors>
+        <extension priority="1.0">blade.php</extension>
+    </detectors>
+    
+    <indentation>
+        <increase>
+            <expression>^\s*&lt;(([^!/?]|%)(?!.+?([/%]&gt;|&lt;/.+?&gt;))|[%!]--\s*$)</expression>
+        </increase>
+        <decrease>
+            <expression>^\s*(&lt;/[^&gt;]+&gt;|--&gt;|--%&gt;)</expression>
+        </decrease>
+    </indentation>
+    
+    <comments>
+        <multiline>
+            <starts-with>
+                <expression>{{--</expression>
+            </starts-with>
+            <ends-with>
+                <expression>--}}</expression>
+            </ends-with>
+        </multiline>
+    </comments>
+    
+    <brackets>
+        <pair open="(" close=")" />
+        <pair open="[" close="]" />
+        <pair open="{{" close="}}" />
+    </brackets>
+    
+    <surrounding-pairs>
+        <pair open="&lt;" close="&gt;" />
+        <pair open="{" close="}" />
+        <pair open="[" close="]" />
+        <pair open="(" close=")" />
+        <pair open="&apos;" close="&apos;" />
+        <pair open="&quot;" close="&quot;" />
+        <pair open="`" close="`" />
+    </surrounding-pairs>
+    
+    <scopes spell-check="true" lookup="dictionary">        
+        <!-- Comments -->
+        <scope name="blade.comment.block" spell-check="true">
+            <starts-with>
+                <expression>{{--</expression>
+            </starts-with>
+            <ends-with>
+                <expression>--}}</expression>
+            </ends-with>
+        </scope>
+        
+        <include syntax="html" />
+    </scopes>
+    
+    <template-scopes>
+        <include syntax="self" collection="tags" />
+        <include syntax="self" collection="functions" />
+        <include syntax="self" collection="keywords" />
+    </template-scopes>
+    
+    <collections>
+        <collection name="tags">
+            <scope name="blade.variable" spell-check="false" lookup="index">
+                <starts-with>
+                    <expression>{{</expression>
+                    <capture number="0" name="blade.tag.framework.variable.start" />
+                </starts-with>
+                <ends-with>
+                    <expression>}}</expression>
+                    <capture number="0" name="blade.tag.framework.variable.end" />
+                </ends-with>
+                <subsyntax name="php-base">
+                    <cut-off>
+                        <expression>}}</expression>
+                    </cut-off>
+                </subsyntax>
+            </scope>
+            
+            <scope name="blade.expression" spell-check="false" lookup="index">
+                <starts-with>
+                    <expression>{!!</expression>
+                    <capture number="0" name="blade.tag.framework.expression.start" />
+                </starts-with>
+                <ends-with>
+                    <expression>!!}</expression>
+                    <capture number="0" name="blade.tag.framework.expression.end" />
+                </ends-with>
+                <subsyntax name="php-base">
+                    <cut-off>
+                        <expression>}}</expression>
+                    </cut-off>
+                </subsyntax>
+            </scope>
+        </collection>
+        
+        <collection name="functions">
+            <scope name="blade.keyword" spell-check="false" lookup="index">
+                <symbol type="function">
+                    <context behavior="subtree" foldable="true" />
+                </symbol>
+                <starts-with>
+                    <expression>@\b(?:php)\b(\(.*?\))?</expression>
+                    <capture number="0" name="blade.embedded.block.php.start" />
+                </starts-with>
+                <ends-with>
+                    <expression>@\b(?:endphp)\b</expression>
+                    <capture number="0" name="blade.embedded.block.php.end" />
+                </ends-with>
+                <subscopes>
+                    <include syntax="php" />
+                </subscopes>
+            </scope>
+            
+            <scope name="blade.keyword" spell-check="false" lookup="index">
+                <symbol type="function">
+                    <context behavior="subtree" foldable="true" />
+                </symbol>
+                <starts-with>
+                    <expression>@\b(?:guest|auth|section|if|else|elseif|for|foreach|while|empty)\b(\(.*?\))?</expression>
+                    <capture number="0" name="blade.embedded.block.guest.start" />
+                </starts-with>
+                <ends-with>
+                    <expression>@\b(?:endguest|endauth|endsection|endif|endfor|endforeach|endwhile|endempty)\b</expression>
+                    <capture number="0" name="blade.embedded.block.guest.end" />
+                </ends-with>
+                <subscopes>
+                    <include syntax="html" />
+                    <include syntax="self" collection="tags" />
+                    <include syntax="self" collection="functions" />
+                </subscopes>
+            </scope>
+        </collection>
+        
+        <collection name="keywords">
+            <scope name="blade.keyword">
+                <expression>@\b(?:include|yield|continue|break|csrf|method|dd|debug|dump|livewire|livewireStyles|livewireScripts)\b(\(.*?\))?</expression>
+            </scope>
+        </collection>
+    </collections>
+</syntax>
