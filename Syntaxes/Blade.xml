@@ -197,6 +197,7 @@
                         <string>stack</string>
                         <string>prepend</string>
                         <string>inject</string>
+                        <string>lang</string>
                         <string>livewire</string>
                     </strings>
                 </starts-with>
