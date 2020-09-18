@@ -103,7 +103,7 @@
         </collection>
         
         <collection name="functions">
-            <scope name="blade.keyword" spell-check="false" lookup="index">
+            <scope name="blade.block" spell-check="false" lookup="index">
                 <symbol type="function">
                     <context behavior="subtree" foldable="true" />
                 </symbol>
@@ -119,30 +119,92 @@
                     <include syntax="php" />
                 </subscopes>
             </scope>
-            
-            <scope name="blade.keyword" spell-check="false" lookup="index">
-                <symbol type="function">
-                    <context behavior="subtree" foldable="true" />
-                </symbol>
-                <starts-with>
-                    <expression>@\b(?:guest|auth|section|if|else|elseif|for|foreach|while|empty)\b(\(.*?\))?</expression>
-                    <capture number="0" name="blade.embedded.block.guest.start" />
-                </starts-with>
-                <ends-with>
-                    <expression>@\b(?:endguest|endauth|endsection|endif|endfor|endforeach|endwhile|endempty)\b</expression>
-                    <capture number="0" name="blade.embedded.block.guest.end" />
-                </ends-with>
-                <subscopes>
-                    <include syntax="html" />
-                    <include syntax="self" collection="tags" />
-                    <include syntax="self" collection="functions" />
-                </subscopes>
-            </scope>
         </collection>
         
         <collection name="keywords">
             <scope name="blade.keyword">
-                <expression>@\b(?:include|yield|continue|break|csrf|method|dd|debug|dump|livewire|livewireStyles|livewireScripts)\b(\(.*?\))?</expression>
+                <strings prefix="(@)?" suffix="\b" word-boundary="false">
+                    <string>csrf</string>
+                    <string>livewireStyles</string>
+                    <string>livewireScripts</string>
+                    <string>else</string>
+                    <string>endif</string>
+                    <string>endforeach</string>
+                    <string>endfor</string>
+                    <string>endwhile</string>
+                    <string>endsection</string>
+                    <string>endisset</string>
+                    <string>verbatim</string>
+                    <string>endverbatim</string>
+                    <string>endunless</string>
+                    <string>endempty</string>
+                    <string>auth</string>
+                    <string>endauth</string>
+                    <string>guest</string>
+                    <string>endguest</string>
+                    <string>production</string>
+                    <string>endproduction</string>
+                    <string>endenv</string>
+                    <string>endswitch</string>
+                    <string>default</string>
+                    <string>empty</string>
+                    <string>continue</string>
+                    <string>break</string>
+                    <string>once</string>
+                    <string>endonce</string>
+                    <string>endpush</string>
+                    <string>enderror</string>
+                    <string>endprepend</string>
+                </strings>
+            </scope>
+            
+            <scope name="blade.keyword">
+                <starts-with>
+                    <strings prefix="(@)?" suffix="\b(\()" word-boundary="false">
+                        <string>extends</string>
+                        <string>section</string>
+                        <string>hasSection</string>
+                        <string>sectionMissing</string>
+                        <string>if</string>
+                        <string>elseif</string>
+                        <string>foreach</string>
+                        <string>method</string>
+                        <string>for</string>
+                        <string>while</string>
+                        <string>yield</string>
+                        <string>isset</string>
+                        <string>include</string>
+                        <string>includeIf</string>
+                        <string>includeWhen</string>
+                        <string>includeUnless</string>
+                        <string>includeFirst</string>
+                        <string>json</string>
+                        <string>unless</string>
+                        <string>empty</string>
+                        <string>auth</string>
+                        <string>guest</string>
+                        <string>env</string>
+                        <string>switch</string>
+                        <string>case</string>
+                        <string>continue</string>
+                        <string>break</string>
+                        <string>push</string>
+                        <string>error</string>
+                        <string>props</string>
+                        <string>input</string>
+                        <string>each</string>
+                        <string>stack</string>
+                        <string>prepend</string>
+                        <string>inject</string>
+                        <string>livewire</string>
+                    </strings>
+                </starts-with>
+                <ends-with>
+                    <expression>(\))</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="php-base" />
+                </subscopes>
             </scope>
         </collection>
     </collections>
