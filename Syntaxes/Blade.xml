@@ -2,7 +2,7 @@
 <syntax name="blade">
     <meta>
         <name>Blade</name>
-        <type>structured</type>
+        <type>markup</type>
         <preferred-file-extension>blade.php</preferred-file-extension>
         <parent>html</parent>
     </meta>
