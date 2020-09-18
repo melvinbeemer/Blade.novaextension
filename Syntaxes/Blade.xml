@@ -65,6 +65,7 @@
         <include syntax="self" collection="tags" />
         <include syntax="self" collection="functions" />
         <include syntax="self" collection="keywords" />
+        <include syntax="self" collection="components" />
     </template-scopes>
     
     <collections>
@@ -204,6 +205,35 @@
                 </ends-with>
                 <subscopes>
                     <include syntax="php-base" />
+                </subscopes>
+            </scope>
+        </collection>
+        
+        <collection name="components">
+            <scope name="blade.tag.close">
+                <symbol type="tag">
+                    <context behavior="end" group-by-name="true" />
+                </symbol>
+                <expression>&lt;/(x-[a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_:.-]*)&gt;</expression>
+                <capture number="1" name="blade.tag.name" />
+            </scope>
+            <scope name="blade.tag.open">
+                <symbol type="tag">
+                    <!-- Do not match self-closing tags -->
+                    <filter match-end="(?&lt;!/&gt;)" />
+                    <context behavior="start" group-by-name="true">
+                        <auto-close string="&lt;/" completion="${name}&gt;" />
+                    </context>
+                </symbol>
+                <starts-with>
+                    <expression>&lt;(x-[a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_:.-]*)</expression>
+                    <capture number="1" name="blade.tag.name" />
+                </starts-with>
+                <ends-with>
+                    <expression>/?&gt;</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="html" collection="attributes" />
                 </subscopes>
             </scope>
         </collection>
