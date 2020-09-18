@@ -2,7 +2,10 @@
   "identifier": "fortyfox.Blade",
   "name": "Blade",
   "organization": "Fortyfox",
-  "description": "Lorem ipsum, dolor sit amet.",
-  "version": "1.0",
-  "categories": ["languages"]
+  "description": "Syntax highlighting and completion for Blade",
+  "version": "0.1",
+  "license": "MIT",
+  "keywords": ["blade", "laravel", "php", "syntax"],
+  "categories": ["languages", "completions"],
+  "activationEvents": ["onLanguage:Blade", "onWorkspaceContains:*.blade.php"]
 }

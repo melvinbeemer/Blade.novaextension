@@ -1,3 +1,3 @@
-## Version 1.0
+## Version 0.1
 
-Initial release
+Initial release, basic syntax highlighting and completion for blade directives
