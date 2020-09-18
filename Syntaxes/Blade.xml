@@ -13,10 +13,10 @@
     
     <indentation>
         <increase>
-            <expression>^\s*&lt;(([^!/?]|%)(?!.+?([/%]&gt;|&lt;/.+?&gt;))|[%!]--\s*$)</expression>
+            <expression>^\s*((@)(section|hasSection|sectionMissing|if|else|foreach|for|while|isset|unless|empty|auth|guest|env|switch|error|each|verbatim|production|once|prepend)\b(\((\w|\$|\=|\>)*\))?\s*$)</expression>
         </increase>
         <decrease>
-            <expression>^\s*(&lt;/[^&gt;]+&gt;|--&gt;|--%&gt;)</expression>
+            <expression>^\s*((@)(endsection|else|elseif|endif|endforeach|endfor|endwhile|endunless|endempty|endisset|endverbatim|endproduction|endenv|endswitch|endonce|endpush|enderror|endprepend|endguest)\b\s*$)</expression>
         </decrease>
     </indentation>
     
