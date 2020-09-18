@@ -161,7 +161,7 @@
             
             <scope name="blade.keyword">
                 <starts-with>
-                    <strings prefix="(@)?" suffix="\b(\()" word-boundary="false">
+                    <strings prefix="(@)?" suffix="\b\s*(\()" word-boundary="false">
                         <string>extends</string>
                         <string>section</string>
                         <string>hasSection</string>
