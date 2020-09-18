@@ -48,6 +48,10 @@
     </surrounding-pairs>
     
     <scopes spell-check="true" lookup="dictionary">        
+        <include syntax="html" />
+    </scopes>
+    
+    <template-scopes>
         <!-- Comments -->
         <scope name="blade.comment.block" spell-check="true">
             <starts-with>
@@ -58,10 +62,6 @@
             </ends-with>
         </scope>
         
-        <include syntax="html" />
-    </scopes>
-    
-    <template-scopes>
         <include syntax="self" collection="tags" />
         <include syntax="self" collection="functions" />
         <include syntax="self" collection="keywords" />
@@ -123,7 +123,7 @@
         </collection>
         
         <collection name="keywords">
-            <scope name="blade.keyword">
+            <scope name="blade.keyword" spell-check="false">
                 <strings prefix="(@)?" suffix="\b" word-boundary="false">
                     <string>csrf</string>
                     <string>livewireStyles</string>
@@ -159,7 +159,7 @@
                 </strings>
             </scope>
             
-            <scope name="blade.keyword">
+            <scope name="blade.keyword" spell-check="false">
                 <starts-with>
                     <strings prefix="(@)?" suffix="\b\s*(\()" word-boundary="false">
                         <string>extends</string>
@@ -210,14 +210,14 @@
         </collection>
         
         <collection name="components">
-            <scope name="blade.tag.close">
+            <scope name="blade.tag.close" spell-check="false">
                 <symbol type="tag">
                     <context behavior="end" group-by-name="true" />
                 </symbol>
                 <expression>&lt;/(x-[a-zA-Z_][A-Za-zÀ-ÖØ-öø-ÿ0-9_:.-]*)&gt;</expression>
                 <capture number="1" name="blade.tag.name" />
             </scope>
-            <scope name="blade.tag.open">
+            <scope name="blade.tag.open" spell-check="false">
                 <symbol type="tag">
                     <!-- Do not match self-closing tags -->
                     <filter match-end="(?&lt;!/&gt;)" />
