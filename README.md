@@ -1,6 +1,6 @@
 # Blade for Nova
 
-This is a very early preliminary version of a syntax highlighting and completion for Nova.
+This is an early version of a syntax highlighting and completion for the Blade templating engine in the Nova editor.
 
 ## Installation
 
