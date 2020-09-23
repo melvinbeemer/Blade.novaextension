@@ -10,11 +10,13 @@
 		</nav>
 	@endauth
 	
-	@foreach($articles as $article)
+	@forelse($articles as $article)
 		<article>
 			<h1><a href="{{ route('articles.show', ['id' => $article->id]) }}">{{ $article->title }}</a></h1>
 		</article>
-	@endforeach
+	@empty
+		<div>No articles.</div>
+	@endforelse
 	
 	<x-test-test.test test="test">
 		@if($test)
@@ -22,4 +24,8 @@
 			<div @if($test->property)checked="checked"@endif></div>
 		@endif
 	</x-test-test.test>
+	
+	@php
+		$test = "Test";
+	@endphp
 @endsection

@@ -13,10 +13,10 @@
     
     <indentation>
         <increase>
-            <expression>^\s*((@)(section|hasSection|sectionMissing|if|else|foreach|for|while|isset|unless|empty|auth|guest|env|switch|error|each|verbatim|production|once|prepend)\b(\((\w|\$|\=|\>)*\))?\s*$)</expression>
+            <expression>^\s*((@)(section|hasSection|sectionMissing|if|else|foreach|forelse|for|while|isset|unless|empty|auth|guest|env|switch|error|each|verbatim|production|once|prepend)\b(\((\w|\$|\=|\>)*\))?\s*$)</expression>
         </increase>
         <decrease>
-            <expression>^\s*((@)(endsection|else|elseif|endif|endforeach|endfor|endwhile|endunless|endempty|endisset|endverbatim|endproduction|endenv|endswitch|endonce|endpush|enderror|endprepend|endguest)\b\s*$)</expression>
+            <expression>^\s*((@)(endsection|else|elseif|endif|endforeach|endforelse|endfor|endwhile|endunless|endempty|endisset|endverbatim|endproduction|endenv|endswitch|endonce|endpush|enderror|endprepend|endguest)\b\s*$)</expression>
         </decrease>
     </indentation>
     
@@ -104,21 +104,23 @@
         </collection>
         
         <collection name="functions">
-            <scope name="blade.block" spell-check="false" lookup="index">
+            <scope name="blade.keyword.php.block" spell-check="false" lookup="index">
                 <symbol type="function">
                     <context behavior="subtree" foldable="true" />
                 </symbol>
                 <starts-with>
-                    <expression>@\b(?:php)\b(\(.*?\))?</expression>
+                    <expression>@php</expression>
                     <capture number="0" name="blade.embedded.block.php.start" />
                 </starts-with>
                 <ends-with>
-                    <expression>@\b(?:endphp)\b</expression>
+                    <expression>@endphp</expression>
                     <capture number="0" name="blade.embedded.block.php.end" />
                 </ends-with>
-                <subscopes>
-                    <include syntax="php" />
-                </subscopes>
+                <subsyntax name="php-base">
+                    <cut-off>
+                        <expression>@endphp</expression>
+                    </cut-off>
+                </subsyntax>
             </scope>
         </collection>
         
@@ -131,6 +133,7 @@
                     <string>else</string>
                     <string>endif</string>
                     <string>endforeach</string>
+                    <string>endforelse</string>
                     <string>endfor</string>
                     <string>endwhile</string>
                     <string>endsection</string>
@@ -169,6 +172,7 @@
                         <string>if</string>
                         <string>elseif</string>
                         <string>foreach</string>
+                        <string>forelse</string>
                         <string>method</string>
                         <string>for</string>
                         <string>while</string>

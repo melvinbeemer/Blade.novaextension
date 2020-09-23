@@ -1,3 +1,8 @@
+## Version 0.3
+
+- Added support for the @forelse directive
+- Fixed an issue where the @php block wasn't working
+
 ## Version 0.2
 
 - Added support for custom blade components

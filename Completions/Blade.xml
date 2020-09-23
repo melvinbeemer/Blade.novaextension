@@ -16,6 +16,7 @@
         <completion string="@else" />
         <completion string="@endif" />
         <completion string="@endforeach" />
+        <completion string="@endforelse" />
         <completion string="@endfor" />
         <completion string="@endwhile" />
         <completion string="@endsection" />
@@ -41,6 +42,8 @@
         <completion string="@endpush" />
         <completion string="@enderror" />
         <completion string="@endprepend" />
+        <completion string="@php" />
+        <completion string="@endphp" />
     </set>
     
     <set name="blade.keywords.parameters" symbol="method">
@@ -55,6 +58,7 @@
         <completion string="@elseif" />
         <completion string="@foreach" />
         <completion string="@method" />
+        <completion string="@forelse" />
         <completion string="@for" />
         <completion string="@while" />
         <completion string="@yield" />
@@ -83,5 +87,6 @@
         <completion string="@prepend" />
         <completion string="@inject" />
         <completion string="@livewire" />
+        <completion string="@lang" />
     </set>
 </completions>
