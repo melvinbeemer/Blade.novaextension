@@ -1,3 +1,7 @@
+## Version 0.4
+
+- Added support for the directives used by Envoy
+
 ## Version 0.3
 
 - Added support for the @forelse directive
