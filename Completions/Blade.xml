@@ -44,6 +44,10 @@
         <completion string="@endprepend" />
         <completion string="@php" />
         <completion string="@endphp" />
+        <completion string="@setup" />
+        <completion string="@endsetup" />
+        <completion string="@endstory" />
+        <completion string="@endtask" />
     </set>
     
     <set name="blade.keywords.parameters" symbol="method">
@@ -88,5 +92,8 @@
         <completion string="@inject" />
         <completion string="@livewire" />
         <completion string="@lang" />
+        <completion string="@servers" />
+        <completion string="@story" />
+        <completion string="@task" />
     </set>
 </completions>

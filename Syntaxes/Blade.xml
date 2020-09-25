@@ -13,10 +13,10 @@
     
     <indentation>
         <increase>
-            <expression>^\s*((@)(section|hasSection|sectionMissing|if|else|foreach|forelse|for|while|isset|unless|empty|auth|guest|env|switch|error|each|verbatim|production|once|prepend)\b(\((\w|\$|\=|\>)*\))?\s*$)</expression>
+            <expression>^\s*((@)(section|hasSection|sectionMissing|if|else|foreach|forelse|for|while|isset|unless|empty|auth|guest|env|switch|error|each|verbatim|production|once|prepend|setup|story|task)\b(\((\w|\$|\=|\>)*\))?\s*$)</expression>
         </increase>
         <decrease>
-            <expression>^\s*((@)(endsection|else|elseif|endif|endforeach|endforelse|endfor|endwhile|endunless|endempty|endisset|endverbatim|endproduction|endenv|endswitch|endonce|endpush|enderror|endprepend|endguest)\b\s*$)</expression>
+            <expression>^\s*((@)(endsection|else|elseif|endif|endforeach|endforelse|endfor|endwhile|endunless|endempty|endisset|endverbatim|endproduction|endenv|endswitch|endonce|endpush|enderror|endprepend|endguest|endsetup|endstory|endtask)\b\s*$)</expression>
         </decrease>
     </indentation>
     
@@ -122,6 +122,25 @@
                     </cut-off>
                 </subsyntax>
             </scope>
+            
+            <scope name="blade.keyword.php.block" spell-check="false" lookup="index">
+                <symbol type="function">
+                    <context behavior="subtree" foldable="true" />
+                </symbol>
+                <starts-with>
+                    <expression>@setup</expression>
+                    <capture number="0" name="blade.embedded.block.php.start" />
+                </starts-with>
+                <ends-with>
+                    <expression>@endsetup</expression>
+                    <capture number="0" name="blade.embedded.block.php.end" />
+                </ends-with>
+                <subsyntax name="php-base">
+                    <cut-off>
+                        <expression>@endsetup</expression>
+                    </cut-off>
+                </subsyntax>
+            </scope>
         </collection>
         
         <collection name="keywords">
@@ -159,6 +178,10 @@
                     <string>endpush</string>
                     <string>enderror</string>
                     <string>endprepend</string>
+                    <string>setup</string>
+                    <string>endsetup</string>
+                    <string>endstory</string>
+                    <string>endtask</string>
                 </strings>
             </scope>
             
@@ -203,6 +226,9 @@
                         <string>inject</string>
                         <string>lang</string>
                         <string>livewire</string>
+                        <string>servers</string>
+                        <string>story</string>
+                        <string>task</string>
                     </strings>
                 </starts-with>
                 <ends-with>
