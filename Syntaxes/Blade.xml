@@ -229,6 +229,7 @@
                         <string>servers</string>
                         <string>story</string>
                         <string>task</string>
+                        <string>parent</string>
                     </strings>
                 </starts-with>
                 <ends-with>
