@@ -145,7 +145,7 @@
         
         <collection name="keywords">
             <scope name="blade.keyword" spell-check="false">
-                <strings prefix="(@)?" suffix="\b" word-boundary="false">
+                <strings prefix="@" suffix="(?!\()\b" word-boundary="false">
                     <string>csrf</string>
                     <string>livewireStyles</string>
                     <string>livewireScripts</string>
@@ -187,7 +187,7 @@
             
             <scope name="blade.keyword" spell-check="false">
                 <starts-with>
-                    <strings prefix="(@)?" suffix="\b\s*(\()" word-boundary="false">
+                    <strings prefix="@" suffix="\b\s*(\()" word-boundary="false">
                         <string>extends</string>
                         <string>section</string>
                         <string>hasSection</string>
@@ -232,9 +232,12 @@
                     </strings>
                 </starts-with>
                 <ends-with>
-                    <expression>(\))</expression>
+                    <expression>(\))(?!.*\1)</expression>
                 </ends-with>
                 <subscopes>
+                    <cut-off>
+                        <expression>(@|\)[\r\n])</expression>
+                    </cut-off>
                     <include syntax="php-base" />
                 </subscopes>
             </scope>

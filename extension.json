@@ -3,7 +3,7 @@
   "name": "Blade",
   "organization": "Melvin Beemer",
   "description": "Syntax highlighting and completion for Laravel Blade",
-  "version": "0.4",
+  "version": "0.5",
   "license": "MIT",
   "bugs": "https://github.com/melvinbeemer/Blade.novaextension/issues",
   "repository": "https://github.com/melvinbeemer/Blade.novaextension",

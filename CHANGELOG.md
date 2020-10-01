@@ -1,3 +1,7 @@
+## Version 0.5
+
+- Fixed some major issues with the blade directive regexes. Methods inside blade directives should now work properly. And directives that can exist with and without arguments should now be highlighted too.
+
 ## Version 0.4
 
 - Added support for the directives used by Envoy
