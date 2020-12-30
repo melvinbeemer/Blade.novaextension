@@ -11,6 +11,7 @@
 	@auth
 		<nav>
 			<a href="{{ route('account') }}" @if($route->selected) checked="asdf" @endif>Account</a>
+			@dd($test)
 		</nav>
 	@endauth
 	

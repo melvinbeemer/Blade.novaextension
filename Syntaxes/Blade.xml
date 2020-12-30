@@ -230,6 +230,7 @@
                         <string>story</string>
                         <string>task</string>
                         <string>parent</string>
+                        <string>dd</string>
                     </strings>
                 </starts-with>
                 <ends-with>
