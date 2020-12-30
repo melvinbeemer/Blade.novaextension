@@ -48,6 +48,7 @@
         <completion string="@endsetup" />
         <completion string="@endstory" />
         <completion string="@endtask" />
+        <completion string="@parent" />
     </set>
     
     <set name="blade.keywords.parameters" symbol="method">
@@ -95,6 +96,5 @@
         <completion string="@servers" />
         <completion string="@story" />
         <completion string="@task" />
-        <completion string="@parent" />
     </set>
 </completions>

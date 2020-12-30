@@ -182,6 +182,7 @@
                     <string>endsetup</string>
                     <string>endstory</string>
                     <string>endtask</string>
+                    <string>parent</string>
                 </strings>
             </scope>
             
@@ -229,7 +230,6 @@
                         <string>servers</string>
                         <string>story</string>
                         <string>task</string>
-                        <string>parent</string>
                         <string>dd</string>
                     </strings>
                 </starts-with>
