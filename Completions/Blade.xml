@@ -96,5 +96,6 @@
         <completion string="@servers" />
         <completion string="@story" />
         <completion string="@task" />
+        <completion string="@dd" />
     </set>
 </completions>
