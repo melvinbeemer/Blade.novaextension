@@ -1,3 +1,7 @@
+## Version 0.7
+
+- Added support for the @component and @slot directives
+
 ## Version 0.6
 
 - Added support for the @dd and @parent directives

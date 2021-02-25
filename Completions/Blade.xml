@@ -49,6 +49,8 @@
         <completion string="@endstory" />
         <completion string="@endtask" />
         <completion string="@parent" />
+        <completion string="@endcomponent" />
+        <completion string="@endslot" />
     </set>
     
     <set name="blade.keywords.parameters" symbol="method">
@@ -97,5 +99,7 @@
         <completion string="@story" />
         <completion string="@task" />
         <completion string="@dd" />
+        <completion string="@component" />
+        <completion string="@slot" />
     </set>
 </completions>

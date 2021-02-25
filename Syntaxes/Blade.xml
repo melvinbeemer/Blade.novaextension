@@ -183,6 +183,8 @@
                     <string>endstory</string>
                     <string>endtask</string>
                     <string>parent</string>
+                    <string>endcomponent</string>
+                    <string>endslot</string>
                 </strings>
             </scope>
             
@@ -231,6 +233,8 @@
                         <string>story</string>
                         <string>task</string>
                         <string>dd</string>
+                        <string>component</string>
+                        <string>slot</string>
                     </strings>
                 </starts-with>
                 <ends-with>

@@ -25,6 +25,9 @@
 		@auth($test)
 		<article>
 			<h1><a href="{{ route('articles.show', ['id' => $article->id]) }}">{{ $article->title }}</a></h1>
+			@component('alert', ['foo' => 'bar'])
+				<x-article-footer article="$article"></x-article-footer>
+			@endcomponent
 		</article>
 	@empty
 		<div>No articles.</div>
